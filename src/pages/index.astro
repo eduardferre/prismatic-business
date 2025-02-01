@@ -1,27 +1,30 @@
 ---
 import SectionContainer from '@/components/SectionContainer.astro'
 import Layout from '../layouts/Layout.astro'
+
+import '@/styles/global.css'
 ---
 
 <Layout
   title="Prismatic - AI Powered Travel Assistant"
   description="Prismatic is an AI powered travel assistant that helps you plan your trips."
 >
-  <main class="pt-26 max-w-7xl h-[4000px]">
+  <main class="pt-32 max-w-6xl h-[4000px]">
     <SectionContainer class="">
-      <div class="flex flex-col items-center justify-center h-full space-y-8">
-        <h1 class="text-4xl font-bold text-center">Prismatic</h1>
-        <p class="text-lg text-center">
-          An AI powered travel assistant that helps you plan your trips.
-        </p>
-      </div>
-    </SectionContainer>
-
-    <SectionContainer class="">
-      <div class="flex flex-col items-center justify-center h-full space-y-8">
-        <h1 class="text-4xl font-bold text-center">Prismatic</h1>
-        <p class="text-lg text-center">
-          An AI powered travel assistant that helps you plan your trips.
+      <div
+        class="flex flex-col items-center justify-center h-full space-y-8 max-w-4xl"
+      >
+        <h1
+          class="text-4xl text-black dark:text-white font-extrabold text-center text-pretty"
+        >
+          An AI travel planner that removes stress, so you can <span
+            class="text-purple-600">enjoy every moment</span
+          >
+        </h1>
+        <p class="text-lg text-center max-w-2xl text-pretty">
+          An AI-powered travel assistant that personalizes every trip based on
+          your budget, dates, and preferences, ensuring effortless planning and
+          unforgettable experiences tailored just for you
         </p>
       </div>
     </SectionContainer>

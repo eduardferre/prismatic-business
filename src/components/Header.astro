@@ -40,11 +40,20 @@ const navItems = [
             aria-label="Home"
           >
             <img
-              src="./public/favicon.png"
+              id="themeImage"
+              src="/src/assets/prismatic.png"
               width="100"
-              class="h-14 w-14"
+              class="aspect-auto w-14 dark:hidden"
               alt="Prismatic Logo"
             />
+            <img
+              id="themeImage"
+              src="/src/assets/prismatic-dark.png"
+              width="100"
+              class="aspect-auto w-14 hidden dark:block"
+              alt="Prismatic Logo"
+            />
+            <span class="text-2xl ">Prismatic</span>
           </a>
         </div>
 
@@ -117,27 +126,20 @@ const navItems = [
   .container {
     margin-left: 0;
     margin-right: 0;
-    max-width: 80rem;
+    max-width: 72rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
   #nav-container {
+    background-color: transparent;
+    border-bottom-color: transparent;
+    border-bottom
     justify-content: center;
     align-items: center;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
-  }
-
-  #nav-container {
-    background-color: rgba(234, 234, 234, 0.3);
-  }
-
-  @media (prefers-color-scheme: black) {
-    #nav-container {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
   }
 
   @keyframes nav-shadown {
@@ -151,6 +153,7 @@ const navItems = [
         0 4px 6px -2px rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       ring: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom-color: rgba(255, 255, 255, 0.1);
     }
   }
 </style>

@@ -1,8 +1,6 @@
 ---
 import SunIcon from '@/assets/icons/SunIcon.astro'
 import MoonIcon from '@/assets/icons/MoonIcon.astro'
-
-const THEMES = ['Light', 'Dark']
 ---
 
 <div class="items-center justify-center relative">
@@ -76,7 +74,6 @@ const THEMES = ['Light', 'Dark']
     }
 
     const themePreference = getThemePreference()
-    console.log(themePreference)
     updateIcon(themePreference)
 
     document.documentElement.classList[
