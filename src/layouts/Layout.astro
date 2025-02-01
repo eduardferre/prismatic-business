@@ -4,6 +4,9 @@ import '@fontsource/ubuntu'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 
+import '@/styles/global.css'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+
 interface Props {
   title: string
   description: string
@@ -22,16 +25,14 @@ const { title, description } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="relative text-black dark:text-white">
-    <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full
-        bg-gray-50 dark:bg-gray-950
-        bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]
-        dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    >
-    </div>
+  <body id="layout" class="text-black dark:text-white">
     <Header />
     <slot />
+    <div
+      class="z-50 fixed bottom-4 right-4 rounded-full aspect-square p-2 bg-purple-950"
+    >
+      <ThemeToggle />
+    </div>
     <Footer />
 
     <style is:global>
@@ -50,6 +51,8 @@ const { title, description } = Astro.props
         flex-direction: column;
         min-height: 100vh;
         overscroll-behavior: none;
+        justify-content: center;
+        align-items: center;
       }
 
       @media (preferes-reduced-motion: reduce) {

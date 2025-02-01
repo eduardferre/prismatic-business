@@ -26,27 +26,51 @@ const navItems = [
 ]
 ---
 
-<header
-  class="fixed top-0 z-10 flex justify-center items-center w-full mx-auto mt-2"
+<div
+  class="flex flex-col w-full border-b fixed left-0 top-0 z-30"
+  id="nav-container"
 >
-  <nav
-    class="flex px-3 font-medium rounded-full text-xs text-gray-600 dark:text-gray-100 justify-center items-center sm:text-sm"
-  >
-    {
-      navItems.map((link) => (
-        <a
-          class="relative block px-2 py-2 transition hover:text-purple-900 dark:hover:text-purple-600 sm:px-4 md:px-6"
-          aria-label={link.label}
-          href={link.url}
-        >
-          {link.title}
-        </a>
-      ))
-    }
-    <ThemeToggle />
-  </nav>
-</header>
+  <div class="flex w-full mx-auto items-center justify-center">
+    <div class="flex w-full items-center container h-16">
+      <header class="flex w-full justify-center items-center h-16">
+        <div class="flex flex-auto justify-start">
+          <a
+            href="/"
+            class="flex items-center gap-2 align-middle primary-focus"
+            aria-label="Home"
+          >
+            <img
+              src="./public/favicon.png"
+              width="100"
+              class="h-14 w-14"
+              alt="Prismatic Logo"
+            />
+          </a>
+        </div>
 
+        <div class="flex justify-end flex-auto items-center">
+          <nav class="md:flex">
+            {
+              navItems.map((link) => (
+                <ul class="flex items-center h-fit px-4">
+                  <li>
+                    <a
+                      class="relative block px-2 py-2 transition hover:text-purple-900 dark:hover:text-purple-600 sm:px-4 md:px-6"
+                      aria-label={link.label}
+                      href={link.url}
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                </ul>
+              ))
+            }
+          </nav>
+        </div>
+      </header>
+    </div>
+  </div>
+</div>
 <script>
   document.addEventListener('astro:page-load', () => {
     const sections = document.querySelectorAll('section')
@@ -90,18 +114,28 @@ const navItems = [
 </script>
 
 <style>
-  nav {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #nav-container {
+    justify-content: center;
+    align-items: center;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
-  nav {
-    background-color: rgba(31, 41, 55, 0.5);
+  #nav-container {
+    background-color: rgba(234, 234, 234, 0.3);
   }
 
-  @media (prefers-color-scheme: light) {
-    nav {
+  @media (prefers-color-scheme: black) {
+    #nav-container {
       background-color: rgba(255, 255, 255, 0.5);
     }
   }
@@ -114,7 +148,7 @@ const navItems = [
     to {
       box-shadow:
         0 10px 15px -3px rgba(0, 0, 0, 0.1),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        0 4px 6px -2px rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
       ring: 1px solid rgba(255, 255, 255, 0.1);
     }
